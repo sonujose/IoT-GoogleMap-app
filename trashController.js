@@ -12,4 +12,7 @@ app.controller('trashCtrl', function($scope) {
         {'id' :3264, 'name': 'City Spot 7', 'statusColor': 'yellow-stat', 'status': 'medium', 'location': '1233,212'},
         {'id' :3285, 'name': 'City Spot 8', 'statusColor': 'yellow-stat', 'status': 'medium', 'location': '1233,212'}
     ];
+    $scope.scrollToBottom = function() {
+        window.scrollTo(0,document.body.scrollHeight);
+    };
 });
