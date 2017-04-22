@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>IOT Trash</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="Assets/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="Assets/angular.min.js"> </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body>
+
+  <div ng-app="myApp" ng-controller="trashCtrl">
+    <div class="header container">
+      <div class="header-title">IOT Trash</div>
+    </div>
+    <div class="header-banner">
+      <div class="container">
+        <h2 class="header-banner-title">Welcome to City Trash Status Analyzer</h2> 
+        <h4 class="header-banner-subtitle">Here you can analyze and maintain all major trashes</h4>
+      </div>
+    </div>
+    <div class="container main-container">
+          <div class="main-content">
+            <div class="col-md-4 col-sm-12 trash-main" ng-repeat="trash in trashList"> 
+              <div class="trash-container" ng-class="trash.statusColor">
+                <div class="trash-name">{{trash.name}}</div>
+                <div class="trash-status">{{trash.status}}</div>
+                <div class="trash-location">{{trash.location}}</div>
+                <button class="btn btn-primary trash-btn">Get Location</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="map container">
+      <div id="map" style="width:100%;height:900px;background:yellow"></div>
+
+<script>
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(8.5241, 76.9366),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF9ZpssGQQI315VPYxJYaVibEUClIvLhA&callback=myMap"></script>
+    </div>
+  </div>
+
+<script src="trashController.js"></script>
+
+</body>
+
+</html>
